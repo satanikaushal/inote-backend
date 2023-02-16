@@ -4,7 +4,7 @@ const mongoURI = "mongodb://127.0.0.1:27017/kaushal";
 const connectToMongo= async()=>{
     mongoose.connect(mongoURI, () => {
       console.log(
-         "Connected to yourDB-name database");
+         "Connected to kaushal database");
    })
 }
 mongoose.set('strictQuery', false);
