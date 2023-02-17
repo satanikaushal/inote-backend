@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const mongoURI = "mongodb://127.0.0.1:27017/kaushal";
 
-const connectToMongo= async()=>{
+const connectToMongo = async()=>{
     mongoose.connect(mongoURI, () => {
-      console.log(
-         "Connected to kaushal database");
+      console.log("Connected to kaushal database");
    })
 }
 mongoose.set('strictQuery', false);
