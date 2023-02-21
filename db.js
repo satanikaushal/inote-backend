@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoURI = "mongodb+srv://satanikaushal:9qLbIIFv1k5WaR0V@cluster0.6ru8n0e.mongodb.net/notebook?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGODB_URI;
 
 const connectToMongo = async()=>{
    try {
@@ -7,7 +7,7 @@ const connectToMongo = async()=>{
       mongoose.connect(
          mongoURI,
         { useNewUrlParser: true, useUnifiedTopology: true },
-        () => console.log(" Mongoose is connected"),
+        () => console.log(" Mongoose is connected",process.env.MONGODB_URI),
       );
     } catch (e) {
       console.log("could not connect");
