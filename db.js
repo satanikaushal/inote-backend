@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
-const mongoURI = process.env.MONGODB_URI;
+require('dotenv').config();
+const mongoName = process.env.mongoName;
+const mongoPass = process.env.mongoPass;
 
 const connectToMongo = async()=>{
    try {
       // Connect to the MongoDB cluster
       mongoose.connect(
-         mongoURI,
+        `mongodb+srv://${mongoName}:${mongoPass}@cluster0.6ru8n0e.mongodb.net/notebook?retryWrites=true&w=majority`,
         { useNewUrlParser: true, useUnifiedTopology: true },
-        () => console.log(" Mongoose is connected",process.env.MONGODB_URI),
+        () => console.log("Mongoose is connected"),
       );
     } catch (e) {
       console.log("could not connect");
